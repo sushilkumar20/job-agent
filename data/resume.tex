@@ -1,0 +1,265 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Sushil Kumar} \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ 7979922630 ~ \href{mailto:sushilkumarbh20@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{sushilkumarbh20@gmail.com}} ~
+    \href{https://www.linkedin.com/in/sushil-kumar-bh20/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/sushil-kumar-bh20/}}  ~
+    \href{https://github.com/sushilkumar20}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/sushilkumar20}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EXPERIENCE-----------
+
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+    {{\raisebox{-0.2\height}{\textbf{FamPay}}} $|$ \emph{GoLang, Temporal, Kafka, Redis, PostgreSQL}}{April 2025 -- Present}
+    {Software Developer}{Bengaluru}
+
+    \vspace{1pt}
+    \hspace{4mm} \textbf{Podrick (Reward Engine):}
+    \vspace{-2mm}
+    \resumeItemListStart
+      \resumeItem{\textbf{Monolith to Microservice Migration:} Led the migration of the reward system from a monolithic architecture to a standalone event-driven microservice, decoupling reward logic and enabling independent scaling.}
+      \resumeItem{\textbf{Event-Based Reward Allocation:} Designed and built a flexible event-driven engine that evaluates and allocates rewards based on any user event, making the system extensible to new reward types without code changes.}
+      \resumeItem{\textbf{High-Throughput Transaction Processing:} Built filtering logic to process 2--3 million transactions daily, determining reward eligibility in under 100--500ms per transaction.}
+    \resumeItemListEnd
+
+    \vspace{1pt}
+    \hspace{4mm} \textbf{Dumbledore (Payment Orchestrator):}
+    \vspace{-2mm}
+    \resumeItemListStart
+      \resumeItem{\textbf{ExecuteWorkflow:} Designed and implemented a Temporal-based \texttt{ExecuteWorkflow} to orchestrate payment collection across multiple services (recharge, gift cards, subscriptions), ensuring reliable end-to-end transaction handling.}
+      \resumeItem{\textbf{ReversalWorkflow:} Built a \texttt{ReversalWorkflow} to automatically reverse payments to users when a purchased service was not fulfilled, improving reliability and user trust.}
+      \resumeItem{\textbf{Scale:} System handles 300K--1M+ payment requests per day with fault-tolerant, idempotent workflows.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+    {{\raisebox{-0.2\height}{\textbf{Ziroh Labs}}} $|$ \emph{Java, GoLang, MongoDB, Postgres, SQLite, Docker}}{May 2023 -- March 2025}
+    {Software Developer}{Bengaluru}
+
+    \vspace{1pt}
+    \hspace{4mm} \textbf{ZunuInfinity:}
+    \vspace{-2mm}
+    \resumeItemListStart
+      \resumeItem{\textbf{Developed Worker Scheduler:} Designed and implemented a worker scheduler, handling allocation and reallocation of workers for AI/ML jobs.}
+      \resumeItem{\textbf{Created REST Services and SDK:} Contributed to developing over 10+ REST services in Golang and created Java clients for the Infinity SDK to integrate a scheduler.}
+      \resumeItem{\textbf{Integrated Notification System:} Supported the creation of a Go-based API for sending notifications to workers, using Redis for desktop and FCM for mobile; improved performance by implementing Go-routines by 50\%, resulting in a 20\% reduction in response time.}
+      \resumeItem{\textbf{Performed End-to-End Testing:} Conducted comprehensive end-to-end testing, identifying and resolving critical bugs, following Agile methodologies. Tested over 1000+ devices.}
+    \resumeItemListEnd
+
+    \vspace{1pt}
+    \hspace{4mm} \textbf{ZunuMessage:}
+    \vspace{-2mm}
+    \resumeItemListStart
+      \resumeItem{\textbf{IP-Messaging Development:} Maintained server and client SDKs for Zunu Message; introduced read/received status, react/reply features, and typing status using Redis.}
+      \resumeItem{\textbf{Performance Optimization:} Enhanced message fetching speed by 25\% through async methods in the SDK.}
+      \resumeItem{\textbf{Updates Feature:} Designed and built the Updates feature; crafted 20+ APIs in GoLang and client SDK in Java, ensuring performance.}
+    \resumeItemListEnd
+
+    \vspace{1pt}
+    \hspace{4mm} \textbf{ZunuMail:}
+    \vspace{-2mm}
+    \resumeItemListStart
+      \resumeItem{\textbf{Developed Zunu Mail Client SDK:} Led the development and enhancement of Java-based SDK for ZunuMail, integrating secure email handling for a unified platform that allows users to manage over 20+ different Gmail and Outlook accounts.}
+      \resumeItem{\textbf{Enhanced performance:} Improved SDK efficiency using asynchronous Java methodologies, improving email retrieval and processing speed by approximately 30\% for users.}
+      \resumeItem{\textbf{Offline Access Feature:} Devised an offline access feature that helped users to retrieve emails without internet and added an outbox functionality for automatic email sending once reconnected, using an SQLite database to store over 10,000 emails locally for quick access during outages.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+    {{\raisebox{-0.2\height}{\textbf{Ziroh Labs}}} $|$ \emph{Java, SQL, Javascript}}{May 2022 -- May 2023}
+    {Software Developer Intern}{Bengaluru, Virtual}
+    \resumeItemListStart
+      \resumeItem{\textbf{Password Manager Extension:} Built a Chrome extension to securely fetch, save, and auto-fill usernames and passwords from webpage forms. Utilized AES encryption for storing data, safeguarding sensitive information across hundreds of websites, and enhancing user convenience by eliminating the need to remember passwords.}
+      \resumeItem{\textbf{Java Library:} Worked on implementation of a Java library for a To Do application, streamlining task management for 200+ users.}
+    \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% %-----------PROJECTS-----------
+% \section{Projects}
+%   \resumeSubHeadingListStart
+%   \resumeSubheading
+%       {ZunuMail}{April 2023 - Present}
+%       {}{}
+%       \vspace{-25pt}
+%       \resumeItemListStart
+%         \resumeItem{Integrated existing email accounts (Gmail and Outlook) into \textbf{ZunuMail}, ensuring users' emails were kept private and secure.}
+%         \resumeItem{Simplified email privacy by implementing encryption and decryption features, providing users with secure email communications.}
+%         \resumeItem{Developed features to secure emails if the device is lost or its password is compromised.}
+%       \resumeItemListEnd
+
+%   \resumeSubheading
+%       {Zunu Message}{January 2023 - April 2023}
+%       {}{}
+%       \vspace{-25pt}
+%       \resumeItemListStart
+%         \resumeItem{Implemented user status features (online, offline, typing) using \textbf{Redis} to store and manage user status, enhancing real-time communication transparency.}
+%         \resumeItem{Designed and developed the application's backend using \textbf{Vert.X} and \textbf{Go}, improving performance and scalability.}
+%         \resumeItem{Created RESTful APIs for seamless integration with the frontend, ensuring efficient data exchange and functionality.}
+%       \resumeItemListEnd
+%   \resumeSubHeadingListEnd
+%   \vspace{-15pt}
+
+
+
+
+% -----------Technical SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, GoLang, C++, C, SQL} \\
+     \textbf{Developer Tools}{: Git, GitHub, PostMan, Intellij, VS Code} \\
+     \textbf{Frameworks}{: Junit} \\
+     \textbf{Soft Skills}{: Team Work, Leadership, Technical Writing} \\
+    }
+    }
+ \end{itemize}
+ \vspace{-16pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Guru Ghasidas Vishwavidyalaya, Bilaspur(C.G.) (A Central University)}{Aug. 2019 -- May 2023}
+      {Bachelor of Technology in Computer Science and Engineering}{9.14/10}
+  \resumeSubHeadingListEnd
+
+%-----------ACHIEVEMENTS-----------
+
+\section{Achievements}
+\onehalfspacing
+    \resumeItemListStart
+        \resumeItem{\href{https://leetcode.com/Sushil_kumar/}{\raisebox{-0.2\height}{\textbf{LeetCode }\faLink}}: Achieved a top rating of 2,234 on LeetCode and secured the \textbf{Guardian badge}, ranking in the top \textbf{1.05\%} by competing in over 150+ coding contests focused on algorithmic challenges.}
+        \vspace{-7pt}
+        \resumeItem{\href{https://www.codechef.com/users/suahilstyen}{\raisebox{-0.2\height}{\textbf{CodeChef }\faLink}}: \textbf{5-star} rated on CodeChef with a maximum \textbf{2097 rating}, and achieved a global rank of 154 in the December Lunchtime 2021.}
+        \vspace{-7pt}
+        \resumeItem{\href{https://codeforces.com/profile/_____SUSHIL_____}{\raisebox{-0.2\height}{\textbf{Codeforces }\faLink}}: \textbf{Specialist} at Codeforces with max \textbf{1,530} rating, participated in 100+ contests and got 638 rank out of 20,000+ participants in Codeforces Round 856.}
+        \vspace{-7pt}
+        \resumeItem{\textbf{AtCoder:} Competed in 55+ AtCoder contests, consistently improving rankings and achieving a Green Coder rating.}
+        \vspace{-7pt}
+        \resumeItem{\textbf{Google Kick Start:} Global rank 1606 in Round A 2022.}
+        \vspace{-7pt}
+    \resumeItemListEnd
+
+%-------------------------------------------
+\end{document}
