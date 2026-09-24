@@ -16,24 +16,29 @@ const analyzePrompt = `You assess how well a candidate matches a job posting.
 
 ` + honestyRules + `
 
-Score honestly on a 0-100 scale:
-  85-100  meets essentially every stated requirement
-  70-84   meets the core requirements, missing some secondary ones
-  50-69   meets some core requirements; real gaps remain
-  below 50 not a credible fit
+The score is the only judgement you make; everything downstream is derived
+from it, so place it carefully on this 0-100 scale:
 
-Set "verdict" to one of:
-  "apply"    strong fit, worth a tailored application
-  "stretch"  worth applying but the candidate should expect gap questions
-  "skip"     not a credible fit; do not spend effort here
+  85-100  meets essentially every stated requirement, including seniority
+  70-84   meets every core requirement; gaps are secondary or learnable
+  50-69   meets some core requirements, but at least one significant gap
+          remains — a missing core technology, or well short on years
+  25-49   a minority of core requirements; applying would waste the
+          candidate's time
+   0-24   wrong discipline or wrong level entirely
+
+Anchor on the CORE requirements — the ones the posting states as required.
+Nice-to-haves should move the score by a few points, not tens. A hard
+disqualifier stated by the posting (a years-of-experience floor the candidate
+is well under, a location requirement they cannot meet) caps the score below
+50 no matter how strong the rest is.
 
 For every entry in "matched", quote the specific resume text that proves it.
 If you cannot quote supporting text, it belongs in "gaps", not "matched".
 
 Respond with a single JSON object and nothing else:
 {
-  "score": <int>,
-  "verdict": "apply" | "stretch" | "skip",
+  "score": <int 0-100>,
   "matched": [{"requirement": "<from the posting>", "evidence": "<quoted from the resume>"}],
   "gaps": ["<requirement the resume does not support>"],
   "summary": "<two sentences: the honest bottom line>"

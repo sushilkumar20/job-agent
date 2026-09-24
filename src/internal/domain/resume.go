@@ -10,6 +10,28 @@ const (
 	VerdictSkip    Verdict = "skip"
 )
 
+// Verdict thresholds. These are the gate that decides whether the pipeline
+// spends tokens generating documents.
+const (
+	ApplyThreshold   = 70
+	StretchThreshold = 50
+)
+
+// VerdictFor derives the recommendation from the score. Asking the model for
+// both produced contradictions — a 60 came back "apply" while a 75 came back
+// "stretch" — because it treated them as independent judgements. Deriving it
+// here makes the gate consistent by construction.
+func VerdictFor(score int) Verdict {
+	switch {
+	case score >= ApplyThreshold:
+		return VerdictApply
+	case score >= StretchThreshold:
+		return VerdictStretch
+	default:
+		return VerdictSkip
+	}
+}
+
 // Match pairs a requirement from the posting with the evidence in the resume
 // that supports it. Requiring evidence is what stops the model asserting a
 // score it cannot justify.
@@ -19,8 +41,9 @@ type Match struct {
 }
 
 type MatchAnalysis struct {
-	Score   int     `json:"score"`
-	Verdict Verdict `json:"verdict"`
+	Score int `json:"score"`
+	// Verdict is derived from Score by the usecase, not returned by the model.
+	Verdict Verdict `json:"-"`
 	Matched []Match `json:"matched"`
 	// Gaps are requirements with nothing in the resume behind them. These are
 	// the point of the analysis — an honest gap is more useful than a score.

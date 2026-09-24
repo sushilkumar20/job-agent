@@ -58,6 +58,11 @@ func (t *Tailor) Analyze(ctx context.Context, resumeBody, job string) (*domain.M
 	if err := decodeJSON(raw, &analysis); err != nil {
 		return nil, fmt.Errorf("analyze: %w", err)
 	}
+	if analysis.Score < 0 || analysis.Score > 100 {
+		return nil, fmt.Errorf("analyze: model returned score %d, outside 0-100", analysis.Score)
+	}
+
+	analysis.Verdict = domain.VerdictFor(analysis.Score)
 	return &analysis, nil
 }
 
